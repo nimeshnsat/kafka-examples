@@ -25,6 +25,7 @@ public class QuotesStreamingSimulator {
             processor1.run();
             consumer1.run();
             producer1.run();
+
             latch.await();
         } catch (Throwable e) {
             System.exit(1);
