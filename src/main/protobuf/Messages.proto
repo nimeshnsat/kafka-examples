@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package dataart;
+
+option java_package = "com.dataart.poc";
+option java_outer_classname = "Messages";
+
+
+message SIQuote {
+    string quote_id = 1;
+    string quote_request_id = 2;
+    google.protobuf.Timestamp transaction_time = 3;
+
+    enum EnumQuoteResponseLevel
+    {
+        NO_ACK = 0;
+        ACK_ONLY_ERR_QUOTES = 1;
+        ACK_EACH_QUOTE = 2;
+    }
+    EnumQuoteResponseLevel quote_response_level = 4;
+
+    enum EnumQuotePublishMode
+    {
+        ALWAYS_WITHOUT_TE_VALIDATIONS = 0;
+        ALWAYS_WITH_TE_CALC_WAIVERS = 1;
+        TE_DECIDE = 2;
+    }
+    EnumQuotePublishMode quote_publish_mode = 5;
+
+    string target_APA = 6;
+    string security_id = 7;
+    string security_id_source = 8;
+    string country_of_issue = 9;
+    google.protobuf.Timestamp valid_until_time = 10;
+
+    enum EnumPriceType {
+        PT_NONE = 0;
+        PT_PER_UNIT = 2;
+        PT_PERCENTAGE = 1;
+        PT_YIELD = 9;
+        PT_BASIS_POINTS = 22;
+    }
+    EnumPriceType price_type = 11;
+
+    string currency = 12;
+    float bid_price = 13;
+    float offer_price = 14;
+    int32 bid_size = 15;
+    int32 offer_size = 16;
+    int32 quote_tier = 17;
+    int32 bid_notional_amount = 18;
+    int32 offer_notional_amount = 19;
+    string notional_currency = 20;
+    string underlying_security_id = 21;
+    string quote_package_id = 22;
+    float quote_package_price = 23;
+
+    enum EnumQuotePackagePriceType {
+        QPPT_NONE = 0;
+        QPPT_PER_UNIT = 2;
+        QPPT_PERCENTAGE = 3;
+        QPPT_YIELD = 9;
+        QPPT_BASIS_POINTS = 22;
+    }
+    EnumQuotePackagePriceType quote_package_price_type = 24;
+
+    string quote_package_currency = 25;
+}
