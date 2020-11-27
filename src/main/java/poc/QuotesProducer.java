@@ -34,7 +34,6 @@ public class QuotesProducer implements Runnable {
         quote.setQuoteId(UUID.randomUUID().toString());
 
         quote.setQuoteRequestId("KgdQpZiPeyDi");
-        quote.setSecurityId("ABC");
         quote.setTransactionTime(timestamp);
         quote.setQuoteResponseLevel(SIQuote.EnumQuoteResponseLevel.ACK_EACH_QUOTE);
         quote.setQuotePublishMode(SIQuote.EnumQuotePublishMode.ALWAYS_WITH_TE_CALC_WAIVERS);
